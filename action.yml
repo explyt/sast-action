@@ -18,7 +18,8 @@ runs:
   steps:
     - name: DEBUG
       shell: bash
-      run: echo ${{inputs.projectRoot}}
+      run: |
+        echo ${{inputs.projectRoot}} > /tmp/project_root
 
     - name: Run analyse task
       uses: explyt/sast-action/analyze@main
