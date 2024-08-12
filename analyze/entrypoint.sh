@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-exec docker run -v /var/run/docker.sock:/var/run/docker.sock -v /github/workspace:/data/projects/project -v /github/workspace:/data/reports -e CONTAINER_UID="$(id -u)" -e CONTAINER_GID="$(id -g)" ghcr.io/explyt/usvm-project-analyzer:2024-08-12-obfuscated-1 --build autobuild --projects-root-dir /data/projects/project --output-dir /data/reports --ifds-analysis-timeout=1000 --verbosity info
+exec docker run -i -v /var/run/docker.sock:/var/run/docker.sock -v /github/workspace:/data/projects/project -v /github/workspace:/data/reports -e CONTAINER_UID="$(id -u)" -e CONTAINER_GID="$(id -g)" ghcr.io/explyt/usvm-project-analyzer:2024-08-12-obfuscated-1 --build autobuild --projects-root-dir /data/projects/project --output-dir /data/reports --ifds-analysis-timeout=1000 --verbosity info
