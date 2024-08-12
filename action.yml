@@ -19,12 +19,12 @@ runs:
     - name: DEBUG
       shell: bash
       run: |
-        echo ${{inputs.projectRoot}} > /tmp/project_root
+        echo ${{inputs.projectRoot}}
 
     - name: Run analyse task
       uses: explyt/sast-action/analyze@main
       env:
-        ANALYZE_PROJECT_ROOT: ${{inputs.projectRoot}}
+        ANALYZE_PROJECT_ROOT: "xxx___${{inputs.projectRoot}}___xxx"
 
     - name: Upload SARIF report
       uses: github/codeql-action/upload-sarif@v2
