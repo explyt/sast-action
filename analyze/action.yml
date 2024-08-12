@@ -1,0 +1,18 @@
+name: "Explyt SAST Analyze java projects"
+
+description: "This actions automatically detects java build system, build project and analyze it with ExplytSAST analyzer"
+
+branding:
+  icon: 'coffee'
+  color: 'red'
+
+inputs:
+  project:
+    description: "Path to project root with build.gradle or pom.xml file"
+    required: true
+
+
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

@@ -1,0 +1,26 @@
+name: "Explyt SAST Analyze java projects"
+
+description: "This actions automatically detects java build system, build project and analyze it with ExplytSAST analyzer"
+
+branding:
+  icon: 'coffee'
+  color: 'red'
+
+inputs:
+  projectRoot:
+    description: "Path to project root with build.gradle or pom.xml file"
+    required: true
+
+
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Run analyse task
+      uses: ./analyze
+      with:
+        project: ${{input.projectRoot}}
+    - name: Upload SARIF report
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: ${{input.projectRoot}}/report-ifds.sarif
