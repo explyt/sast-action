@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-prefix="xxx___"
-suffix="___xxx"
-PROJECT_ROOT=${"$ANALYZE_PROJECT_ROOT"#"$prefix"}
-PROJECT_ROOT=${PROJECT_ROOT%"$suffix"}
+PROJECT_ROOT=$(echo "$ANALYZE_PROJECT_ROOT" | cut -c7- | rev | cut -c7- | rev)
 export PROJECT_ROOT
 
 echo $PROJECT_ROOT
