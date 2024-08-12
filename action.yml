@@ -19,8 +19,8 @@ runs:
     - name: Run analyse task
       uses: ./analyze
       with:
-        project: ${{input.projectRoot}}
+        project: ${{inputs.projectRoot}}
     - name: Upload SARIF report
       uses: github/codeql-action/upload-sarif@v2
       with:
-        sarif_file: ${{input.projectRoot}}/report-ifds.sarif
+        sarif_file: ${{inputs.projectRoot}}/report-ifds.sarif
