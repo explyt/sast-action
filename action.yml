@@ -19,8 +19,8 @@ runs:
 
     - name: Run analyse task
       uses: explyt/sast-action/analyze@main
-      with:
-        project: ${{inputs.projectRoot}}
+      env:
+        INPUT_PROJECT: ${{inputs.projectRoot}}
 
     - name: Upload SARIF report
       uses: github/codeql-action/upload-sarif@v2
