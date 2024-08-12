@@ -16,10 +16,12 @@ inputs:
 runs:
   using: 'composite'
   steps:
+
     - name: Run analyse task
-      uses: ./analyze
+      uses: explyt/sast-action/analyze@main
       with:
         project: ${{inputs.projectRoot}}
+
     - name: Upload SARIF report
       uses: github/codeql-action/upload-sarif@v2
       with:
