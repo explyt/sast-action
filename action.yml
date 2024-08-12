@@ -16,11 +16,6 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: DEBUG
-      shell: bash
-      run: |
-        echo ${{inputs.projectRoot}}
-
     - name: Run analyse task
       uses: explyt/sast-action/analyze@main
       env:
