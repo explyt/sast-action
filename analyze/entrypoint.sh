@@ -12,7 +12,7 @@ if [ "$ANALYZE_PROJECT_KIND" = "spring" ]; then
 fi
 
 if [[ -n $ANALYZE_CONFIG ]]; then
-  ANALYZER_ARGS="$ANALYZER_ARGS --config $ANALYZE_CONFIG";
+  ANALYZER_ARGS="$ANALYZER_ARGS --config /data/projects/project/$ANALYZE_CONFIG";
 fi
 
 echo "Analyzer params: $ANALYZER_ARGS"
