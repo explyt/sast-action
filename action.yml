@@ -10,8 +10,14 @@ inputs:
   projectRoot:
     description: "Path to project root with build.gradle or pom.xml file"
     required: true
-
-
+  projectKind:
+    description: "Type of analyzed project (spring or unknown)"
+    required: false
+    default: unknown
+  config:
+    description: "User provided analysis configuration (relative to project root)"
+    required: false
+    default: ""
 
 runs:
   using: 'composite'
@@ -19,7 +25,9 @@ runs:
     - name: Run analyse task
       uses: explyt/sast-action/analyze@main
       env:
-        ANALYZE_PROJECT_ROOT: "xxx___${{inputs.projectRoot}}___xxx"
+        ANALYZE_PROJECT_ROOT: "xxx___${{ inputs.projectRoot }}___xxx"
+        ANALYZE_PROJECT_KIND: ${{ inputs.projectKind }}
+        ANALYZE_CONFIG: ${{ inputs.config }}
 
     - name: Upload SARIF report
       uses: github/codeql-action/upload-sarif@v3
