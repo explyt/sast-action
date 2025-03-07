@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION=2025-03-06-2
+VERSION=2025-03-07-1
 
 PROJECT_ROOT=$(echo "$ANALYZE_PROJECT_ROOT" | cut -c7- | rev | cut -c7- | rev)
 echo "Run analyzer on $PROJECT_ROOT"
